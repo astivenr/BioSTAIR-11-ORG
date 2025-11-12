@@ -1,0 +1,36 @@
+{
+  "BioSTair11_ORG": {
+    "version": "1.5.5",
+    "bloque": "principios_biosemióticos",
+    "contexto": "Sistematización de los fundamentos que rigen la coherencia orgánica entre forma, función y consciencia.",
+    "principios": {
+      "1": {
+        "nombre": "Principio de Resonancia",
+        "descripcion": "Toda interacción significativa surge por acoplamiento vibracional. La resonancia permite la transmisión de información sin pérdida y constituye el vínculo entre las dimensiones biológicas y simbólicas."
+      },
+      "2": {
+        "nombre": "Principio de Dualidad Dinámica",
+        "descripcion": "La existencia se despliega en pares complementarios (masculino/femenino, orden/caos, expansión/contracción). La dualidad no es oposición, sino el campo de tensiones donde emerge la conciencia."
+      },
+      "3": {
+        "nombre": "Principio de Estructura",
+        "descripcion": "La estructura no antecede al flujo; es su manifestación visible. Cada forma estable es la huella de un ritmo coherente que logró sincronizarse con la totalidad."
+      },
+      "4": {
+        "nombre": "Principio de Coherencia Evolutiva",
+        "descripcion": "La evolución no persigue un fin lineal, sino la expansión de la coherencia a través de niveles crecientes de integración."
+      },
+      "5": {
+        "nombre": "Principio de Flexibilidad Evolutiva",
+        "descripcion": "La estructura no es el destino final, sino una parada temporal. La capacidad de evolución reside en la plasticidad del sistema, la cual es facilitada por estados de exploración (números impares)."
+      }
+    },
+    "referencias_simbolicas": {
+      "abejas": "Representan el equilibrio entre individualidad y colectividad: estructura sin jerarquía coercitiva.",
+      "fibonacci": "Código de crecimiento natural que demuestra que la forma emerge del flujo, no al revés.",
+      "dualidad": "El 2 como matriz de la danza universal; el 4 como estabilidad; el 8 como espiral de continuidad Möbius."
+    },
+    "estado": "activo",
+    "proposito": "Unificar lenguaje simbólico y lenguaje sistémico para construir tecnologías de armonización y consciencia integrativa."
+  }
+}
