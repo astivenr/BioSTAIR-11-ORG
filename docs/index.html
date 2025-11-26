@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BIOTUNER-2 | BioSTAIR-11-ORG</title>
+    <title>MORPHYUS-SINMCORE 3.0 | BioSTAIR-11-ORG</title>
     <style>
         :root {
             --primary: #1a237e;
@@ -284,6 +284,86 @@
             font-size: 1.2rem;
         }
 
+        /* Strategic Advances Section */
+        .advances-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .advance-card {
+            background: rgba(26, 35, 126, 0.3);
+            border-radius: 10px;
+            padding: 2rem;
+            border-left: 4px solid var(--accent);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .advance-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--neural-glow);
+        }
+
+        .advance-card h3 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .advance-item {
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .advance-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .advance-label {
+            font-weight: 600;
+            color: var(--secondary);
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .advance-value {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .channel-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.8rem;
+        }
+
+        .channel-item {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 0.8rem;
+            border-radius: 6px;
+            border-left: 3px solid var(--secondary);
+        }
+
+        .equity-model {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 1.5rem;
+            text-align: center;
+        }
+
+        .equity-item {
+            padding: 1rem;
+        }
+
+        .equity-percentage {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--accent);
+            display: block;
+        }
+
         /* Demo Section */
         .demo-grid {
             display: grid;
@@ -467,6 +547,11 @@
                 grid-template-columns: 1fr;
             }
 
+            .equity-model {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
             section {
                 padding: 3rem 1.5rem;
             }
@@ -478,10 +563,11 @@
     <header>
         <nav>
             <div class="logo">
-                <h1>BIOTUNER-2</h1>
+                <h1>MORPHYUS-SINMCORE 3.0</h1>
             </div>
             <div class="nav-links">
                 <a href="#about">Fundamentos</a>
+                <a href="#advances">Avances Estratégicos</a>
                 <a href="#demos">Demostraciones</a>
                 <a href="#collaboration">Colaboración</a>
                 <a href="#status">Estado</a>
@@ -494,7 +580,7 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1>BIOTUNER-2</h1>
+            <h1>MORPHYUS-SINMCORE 3.0</h1>
             <p>Neuroplasticidad Auditiva mediante Coherencia Armónica Fractal</p>
             <div class="cta-buttons">
                 <a href="#demos" class="btn btn-primary">Ver Demostraciones Interactivas</a>
@@ -511,7 +597,7 @@
         <div class="about-content">
             <div class="about-text">
                 <h3>Revolucionando la Neuroplasticidad a través de la Coherencia Armónica</h3>
-                <p>BIOTUNER-2 integra matemáticas fractales, teoría de cuerdas extendida y principios spinozianos para crear protocolos de neuroplasticidad auditiva sin precedentes.</p>
+                <p>MORPHYUS-SINMCORE integra matemáticas fractales, teoría de cuerdas extendida y principios spinozianos para crear protocolos de neuroplasticidad auditiva sin precedentes.</p>
                 
                 <div class="about-features">
                     <div class="feature">
@@ -541,6 +627,108 @@
                 <div class="fractal-placeholder">
                     Visualización Fractal 147911<br>
                     (Próximamente)
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Strategic Advances Section -->
+    <section id="advances">
+        <div class="section-title">
+            <h2>Avances Estratégicos</h2>
+        </div>
+        <div class="advances-container">
+            <div class="advance-card">
+                <h3>Arquitectura de Control</h3>
+                <div class="advance-item">
+                    <span class="advance-label">Modelo Actuador</span>
+                    <span class="advance-value">BioTuner (Audacity/Software)</span>
+                </div>
+                <div class="advance-item">
+                    <span class="advance-label">Variable de Proceso (PV)</span>
+                    <span class="advance-value">Entropía Espectral de la Voz</span>
+                </div>
+                <div class="advance-item">
+                    <span class="advance-label">Lazo de Control</span>
+                    <span class="advance-value">PID Adaptativo (Implícito)</span>
+                </div>
+                <div class="advance-item">
+                    <span class="advance-label">Bases Nitrogenadas Análogas</span>
+                    <span class="advance-value">4 Canales Monofónicos</span>
+                </div>
+            </div>
+
+            <div class="advance-card">
+                <h3>Implementación Acústica</h3>
+                <div class="advance-item">
+                    <span class="advance-label">Canales Monofónicos</span>
+                    <div class="channel-grid">
+                        <div class="channel-item">
+                            <strong>Canal 1:</strong> Tono Base/Referencia (0.506%)
+                        </div>
+                        <div class="channel-item">
+                            <strong>Canal 2:</strong> Primer Modulador (0.986%)
+                        </div>
+                        <div class="channel-item">
+                            <strong>Canal 3:</strong> Máximo Desplazamiento (1.481%)
+                        </div>
+                        <div class="channel-item">
+                            <strong>Canal 4:</strong> Segundo Modulador (0.986%)
+                        </div>
+                    </div>
+                </div>
+                <div class="advance-item">
+                    <span class="advance-label">Filtros Utilizados</span>
+                    <span class="advance-value">Paso Bajo (1711 Hz) + Paso Alto (88 Hz)</span>
+                </div>
+            </div>
+
+            <div class="advance-card">
+                <h3>Evidencia Fisiológica</h3>
+                <div class="advance-item">
+                    <span class="advance-label">Métrica Visual</span>
+                    <span class="advance-value">Espectrogramas (Densidad y Expansión Armónica)</span>
+                </div>
+                <div class="advance-item">
+                    <span class="advance-label">Período Analizado</span>
+                    <span class="advance-value">Agosto 2025 a Noviembre 2025</span>
+                </div>
+                <div class="advance-item">
+                    <span class="advance-label">Hallazgo Principal</span>
+                    <span class="advance-value">Expansión Cuantificable del Espectro Vocal</span>
+                </div>
+                <div class="advance-item">
+                    <span class="advance-label">Conclusión Fisiológica</span>
+                    <span class="advance-value">Reducción de Entropía Espectral Funcional y aumento de complejidad organizada en 3 meses</span>
+                </div>
+            </div>
+
+            <div class="advance-card">
+                <h3>Estrategia Institucional</h3>
+                <div class="advance-item">
+                    <span class="advance-label">Contacto Clave</span>
+                    <span class="advance-value">Prof. Alfredo Chacon Garcia (UDistrital)</span>
+                </div>
+                <div class="advance-item">
+                    <span class="advance-label">Propósito del Contacto</span>
+                    <span class="advance-value">Validación del modelo de Control PID y mentoría</span>
+                </div>
+                <div class="advance-item">
+                    <span class="advance-label">Marco Legal Propuesto</span>
+                    <span class="advance-value">Empresa Derivada (BioTuner Enterprise)</span>
+                </div>
+                <div class="advance-item">
+                    <span class="advance-label">Modelo de Equity Propuesto</span>
+                    <div class="equity-model">
+                        <div class="equity-item">
+                            <span class="equity-percentage">60-70%</span>
+                            <span>Inventor</span>
+                        </div>
+                        <div class="equity-item">
+                            <span class="equity-percentage">30-40%</span>
+                            <span>Universidad Distrital</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -641,10 +829,11 @@
     <footer>
         <div class="footer-content">
             <h2>BioSTAIR-11-ORG</h2>
-            <p>Plataforma oficial de documentación del proyecto BIOTUNER-2</p>
+            <p>Plataforma oficial de documentación del proyecto MORPHYUS-SINMCORE</p>
             
             <div class="footer-links">
                 <a href="#about">Fundamentos</a>
+                <a href="#advances">Avances Estratégicos</a>
                 <a href="#demos">Demostraciones</a>
                 <a href="#collaboration">Colaboración</a>
                 <a href="#status">Estado</a>
@@ -653,8 +842,8 @@
             </div>
             
             <div class="copyright">
-                <p>&copy; 2025 BIOTUNER-2. Todos los derechos reservados.</p>
-                <p>Desarrollado con ❤️ por Atrésico Áureo/Asterisco Amargo, DeepSeek, Claude IA, Grok, Gemini, ChatGPT y más</p>
+                <p>&copy; 2025 MORPHYUS-SINMCORE. Todos los derechos reservados.</p>
+                <p>Desarrollado con ❤️ por Andru Stiven, DeepSeek y ChatGPT</p>
             </div>
         </div>
     </footer>
