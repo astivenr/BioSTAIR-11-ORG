@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>BioSTAir-11: Campo Unificador de Conceptos</title>
+    <title>BioSTAir-11: Panel de Control (8 Dominios de la Colmena)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         /* Reset y base responsive */
@@ -12,7 +12,7 @@
             box-sizing: border-box;
         }
 
-        /* 1. Fondo responsivo */
+        /* 1. Fondo responsivo y orgánico */
         body { 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
             background: #0a192f;
@@ -35,7 +35,7 @@
             align-items: center;
         }
 
-        /* Header responsivo */
+        /* Header responsivo (El Supermercado Conceptual) */
         .platform-header { 
             background: rgba(30, 60, 100, 0.25);
             backdrop-filter: blur(10px);
@@ -162,9 +162,10 @@
             margin: 0 auto;
         }
 
-        /* Nivel de soporte - Grid responsivo */
+        /* Nivel de soporte (La Colmena) - Grid responsivo */
         .support-level {
             display: grid;
+            /* Se ajusta a 2, 3 o 4 columnas dependiendo del ancho de pantalla */
             grid-template-columns: repeat(auto-fit, minmax(min(180px, 40vw), 1fr));
             gap: clamp(15px, 4vw, 25px);
             justify-content: center;
@@ -181,13 +182,55 @@
             align-items: center;
             text-decoration: none;
             color: white;
+            /* Base para los Módulos de Soporte */
+            border-color: rgba(100, 255, 218, 0.2); 
         }
 
+        /* --- Estilos de Color para los 8 Módulos de la Colmena (Soporte) --- */
+        
+        /* M1: Progreso Personal (Verde Lima) */
+        .support-module.m1 { background: rgba(50, 100, 20, 0.4); }
+        .support-module.m1:hover { border-color: #a5ff6b; box-shadow: 0 0 15px #a5ff6b; }
+
+        /* M2: Ingeniería/Simulación (Cian/Azul) */
+        .support-module.m2 { background: rgba(20, 35, 60, 0.5); }
+        .support-module.m2:hover { border-color: #64ffda; box-shadow: 0 0 15px #64ffda; }
+        
+        /* M3: I+D / Colmena Externa (Ámbar/Amarillo) */
+        .support-module.m3 { background: rgba(140, 100, 20, 0.4); }
+        .support-module.m3:hover { border-color: #fff06b; box-shadow: 0 0 15px #fff06b; }
+
+        /* M4: Roadmap/Fase 1 (Magenta) */
+        .support-module.m4 { background: rgba(100, 20, 50, 0.4); }
+        .support-module.m4:hover { border-color: #ff6b9a; box-shadow: 0 0 15px #ff6b9a; }
+
+        /* M5: Aplicaciones Terapéuticas (Aqua Brillante) */
+        .support-module.m5 { background: rgba(0, 150, 200, 0.4); }
+        .support-module.m5:hover { border-color: #00b4d8; box-shadow: 0 0 15px #00b4d8; }
+
+        /* M6: Ciencia y Arte (Naranja Cobre) */
+        .support-module.m6 { background: rgba(140, 50, 20, 0.4); }
+        .support-module.m6:hover { border-color: #ffaa00; box-shadow: 0 0 15px #ffaa00; }
+
+        /* M7: Cosmovisiones y Creencias (Violeta/Dorado) */
+        .support-module.m7 { background: rgba(75, 0, 130, 0.3); }
+        .support-module.m7:hover { border-color: #ffd700; box-shadow: 0 0 15px #ffd700; }
+        
+        /* M8: Fundamentos Científicos (Azul Profundo - ¡NUEVO!) */
+        .support-module.m8 { 
+            background: rgba(0, 68, 136, 0.4); 
+            border-color: rgba(150, 200, 255, 0.2); 
+        }
+        .support-module.m8:hover { 
+            border-color: #5aa9e6; 
+            box-shadow: 0 0 15px #5aa9e6; 
+        }
+        
+        /* Efecto Hover Genérico */
         .support-module:hover {
             transform: scale(1.08);
             background: rgba(30, 45, 70, 0.7);
-            border-color: rgba(200, 200, 255, 0.4);
-            box-shadow: 0 0 15px rgba(150, 200, 255, 0.3);
+            z-index: 10;
         }
 
         /* Contenido de módulos responsivo */
@@ -230,77 +273,19 @@
             z-index: 10;
         }
 
-        /* Media queries específicas para mejor ajuste */
+        /* Media queries específicas para mejor ajuste de 8 módulos */
         @media (max-width: 768px) {
-            .products-level {
-                grid-template-columns: 1fr;
-                max-width: 400px;
-                margin: 0 auto;
-            }
-            
             .support-level {
                 grid-template-columns: repeat(2, minmax(150px, 1fr));
                 gap: 15px;
             }
         }
-
-        @media (max-width: 480px) {
-            .main-container {
-                padding: 10px;
-            }
-            
-            .platform-header {
-                padding: 20px 15px;
-                margin: 20px auto;
-                width: 95%;
-            }
-            
+        
+        @media (min-width: 1024px) {
             .support-level {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 12px;
+                /* Distribución en 4x2 para 8 módulos */
+                grid-template-columns: repeat(4, minmax(180px, 1fr));
             }
-            
-            .product-module {
-                aspect-ratio: 1/0.9; /* Ligeramente más alto en móviles muy pequeños */
-            }
-            
-            .support-module {
-                aspect-ratio: 1/0.9;
-            }
-        }
-
-        @media (min-width: 1200px) {
-            .support-level {
-                grid-template-columns: repeat(5, minmax(180px, 1fr));
-            }
-        }
-
-        /* Ajustes para tablets en modo horizontal */
-        @media (min-width: 768px) and (max-width: 1024px) {
-            .support-level {
-                grid-template-columns: repeat(3, minmax(160px, 1fr));
-            }
-        }
-
-        /* Soporte para dispositivos con mouse y touch */
-        @media (hover: none) and (pointer: coarse) {
-            .product-module:hover,
-            .support-module:hover {
-                transform: none;
-            }
-            
-            .product-module:active,
-            .support-module:active {
-                transform: scale(0.98);
-            }
-        }
-
-        /* Mejoras para navegación por teclado */
-        .product-module:focus-visible,
-        .support-module:focus-visible {
-            outline: 2px solid #64ffda;
-            outline-offset: 3px;
-            transform: scale(1.05);
         }
     </style>
 </head>
@@ -308,17 +293,16 @@
     <div class="main-container">
         <div class="platform-header">
             <h1 class="platform-title">BioSTAir-11</h1>
-            <p class="platform-subtitle">De la Atresia Aural a la Neurociencia del ADN</p>
+            <p class="platform-subtitle">Campo Unificador: De la Atresia Aural a la Neurociencia del ADN</p>
             <div class="platform-tagline">
                 Framework Patient-Engineer | Modelo Red Hat/Linux | Core Abierto
             </div>
         </div>
 
         <div class="architecture-container">
-            <!-- Nivel 1: Producto Principal -->
             <div class="products-level">
                 <a href="newrosync-11-dashboard.html" class="product-module main-product">
-                    <div class="product-badge">v6.2</div>
+                    <div class="product-badge">v7.0</div>
                     <div class="module-content">
                         <h2 class="module-title">NewroSync-11</h2>
                         <p class="module-description">Reproductor Terapéutico Principal</p>
@@ -331,72 +315,70 @@
                 </a>
             </div>
 
-            <!-- Nivel 2: Módulos de Soporte -->
             <div class="support-level">
-                <a href="tnft-framework.html" class="support-module">
+                
+                <a href="progreso-personal.html" class="support-module m1">
                     <div class="module-content">
-                        <h3 class="module-title">TNFT Core</h3>
-                        <p class="module-description">Teoría Base Abierta</p>
+                        <h3 class="module-title">M1: Progreso Personal</h3>
+                        <p class="module-description">Mi Mejora Auditiva y Eventos Funcionales</p>
                     </div>
                 </a>
 
-                <a href="patient-engineer-framework.html" class="support-module">
+                <a href="ingenieria-control.html" class="support-module m2">
                     <div class="module-content">
-                        <h3 class="module-title">Patient-Engineer</h3>
-                        <p class="module-description">Metodología de Investigación</p>
+                        <h3 class="module-title">M2: Ingeniería/Simulación</h3>
+                        <p class="module-description">Control PID Adaptativo y Frecuencias Complementarias</p>
                     </div>
                 </a>
 
-                <a href="business-model.html" class="support-module">
+                <a href="investigacion-desarrollo.html" class="support-module m3">
                     <div class="module-content">
-                        <h3 class="module-title">Modelo Red Hat</h3>
-                        <p class="module-description">Gestión IP & Licenciamiento</p>
+                        <h3 class="module-title">M3: I+D / Hardware</h3>
+                        <p class="module-description">Referencias, Analogías Cuánticas y Core Open Source</p>
                     </div>
                 </a>
 
-                <a href="developer-portal.html" class="support-module">
+                <a href="plan-ejecucion.html" class="support-module m4">
                     <div class="module-content">
-                        <h3 class="module-title">Dev Portal</h3>
-                        <p class="module-description">APIs & SDKs</p>
+                        <h3 class="module-title">M4: Roadmap/Fase 1</h3>
+                        <p class="module-description">Planes de Ejecución (3 Semanas) y KPIs de Validación</p>
+                    </div>
+                </a>
+                
+                <a href="aplicaciones.html" class="support-module m5">
+                    <div class="module-content">
+                        <h3 class="module-title">M5: Aplicaciones Terapéuticas</h3>
+                        <p class="module-description">Protocolos de Modulación (Ej. Documento Audacity)</p>
                     </div>
                 </a>
 
-                <a href="validation-hub.html" class="support-module">
+                <a href="ciencia-arte-sentimiento.html" class="support-module m6">
                     <div class="module-content">
-                        <h3 class="module-title">Validation Hub</h3>
-                        <p class="module-description">Estudios & Datos</p>
+                        <h3 class="module-title">M6: Ciencia y Arte</h3>
+                        <p class="module-description">Amor, Humor, Dualidad y Campos de Coherencia (Ej. The Kid)</p>
+                    </div>
+                </a>
+                
+                <a href="cosmovisiones-creencias.html" class="support-module m7">
+                    <div class="module-content">
+                        <h3 class="module-title">M7: Cosmovisiones y Creencias</h3>
+                        <p class="module-description">Variables Locales (Fantasmas) y Variables Globales (Fe)</p>
+                    </div>
+                </a>
+
+                <a href="fundamentos-cientificos.html" class="support-module m8">
+                    <div class="module-content">
+                        <h3 class="module-title">M8: Fundamentos Científicos</h3>
+                        <p class="module-description">Neuroplasticidad, Resonancia Molecular y ADN/ARN</p>
                     </div>
                 </a>
             </div>
+            
+            <p style="text-align: center; font-size: 0.75em; opacity: 0.6; margin-top: 40px;">
+                La Colmena BioSTAIR-11 es el Framework. NewroSync-11 es el Producto.
+            </p>
+
         </div>
     </div>
-
-    <script>
-        // Mejorar accesibilidad y experiencia móvil
-        document.addEventListener('DOMContentLoaded', function() {
-            // Prevenir zoom en doble tap en móviles
-            let lastTouchEnd = 0;
-            document.addEventListener('touchend', function(event) {
-                const now = (new Date()).getTime();
-                if (now - lastTouchEnd <= 300) {
-                    event.preventDefault();
-                }
-                lastTouchEnd = now;
-            }, false);
-
-            // Suavizar transiciones en móviles
-            if ('ontouchstart' in window) {
-                document.documentElement.style.setProperty('--hover-transition', '0.2s');
-            }
-
-            // Lazy loading para imágenes futuras
-            if ('loading' in HTMLImageElement.prototype) {
-                const images = document.querySelectorAll('img[loading="lazy"]');
-                images.forEach(img => {
-                    img.src = img.dataset.src;
-                });
-            }
-        });
-    </script>
 </body>
 </html>
