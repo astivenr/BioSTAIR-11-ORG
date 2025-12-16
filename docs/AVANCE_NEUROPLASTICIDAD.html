@@ -41,7 +41,7 @@
             color: #555;
             margin-top: 20px;
         }
-        .technique-box, .config-box, .expansion-box { /* Añadido .expansion-box */
+        .technique-box, .config-box, .expansion-box { 
             background-color: #e9f7ff;
             border-left: 5px solid #007bff;
             padding: 15px;
@@ -52,8 +52,8 @@
             background-color: #fff0e9;
             border-left: 5px solid #ff7b00;
         }
-        .expansion-box { /* Estilo específico para la nueva sección */
-            background-color: #e6ffe6; /* Verde claro para expansión */
+        .expansion-box { 
+            background-color: #e6ffe6; 
             border-left: 5px solid #38a700;
         }
         /* ESTILOS DE LA TABLA (NO RESPONSIVO) */
@@ -82,7 +82,7 @@
         }
 
         /* ------------------------------------------------ */
-        /* RESPONSIVE DESIGN: MEDIA QUERIES */
+        /* RESPONSIVE DESIGN: MEDIA QUERIES (CORRECCIÓN DEL BUG) */
         /* ------------------------------------------------ */
 
         @media screen and (max-width: 600px) {
@@ -112,7 +112,7 @@
                 border: none;
                 border-bottom: 1px solid #eee;
                 position: relative;
-                padding-left: 50%; 
+                padding-left: 55%; /* Espacio aumentado para el label */
                 text-align: right;
             }
 
@@ -121,9 +121,9 @@
                 position: absolute;
                 top: 6px;
                 left: 6px;
-                width: 45%;
+                width: 50%; /* Ancho aumentado para el label */
                 padding-right: 10px;
-                white-space: nowrap;
+                white-space: normal; /* Permite el ajuste de línea para evitar superposición */
                 text-align: left;
                 font-weight: bold;
                 color: #0056b3;
