@@ -13,7 +13,7 @@ la convergencia entre biología, consciencia y estructuras matemáticas naturale
 
 ## **Status:** Prototipo Algorítmico Funcional (Python) | Listo para Validación Empírica
 
-### **Autor:** Andru Stiven Rodríguez Bustos (Tecnólogo en Electrónica con conocimientos en Ingeniería Control)
+### **Autor:** Andru Stiven Rodríguez Bustos (Tecnólogo en Electrónica con conocimientos en Ingeniería en Control. Malformación congénita en el oído derecho, Atresia Aúrea, escuchando cada vez más)
 
 -----
 
