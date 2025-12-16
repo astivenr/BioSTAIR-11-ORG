@@ -5,20 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Documento de Avance: Proyecto Neuroplasticidad Asistida</title>
     <style>
+        /* BASE STYLES */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            margin: 20px;
+            margin: 0; 
+            padding: 20px; 
             background-color: #f4f4f9;
             color: #333;
         }
         .container {
             max-width: 900px;
+            width: 100%; 
             margin: auto;
             background: #fff;
             padding: 30px;
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
         }
         h1 {
             color: #0056b3;
@@ -48,6 +52,7 @@
             background-color: #fff0e9;
             border-left: 5px solid #ff7b00;
         }
+        /* ESTILOS DE LA TABLA (NO RESPONSIVO) */
         table {
             width: 100%;
             border-collapse: collapse;
@@ -71,6 +76,58 @@
             padding: 2px 4px;
             border-radius: 3px;
         }
+
+        /* ------------------------------------------------ */
+        /* RESPONSIVE DESIGN: MEDIA QUERIES */
+        /* ------------------------------------------------ */
+
+        @media screen and (max-width: 600px) {
+            
+            .container {
+                padding: 15px;
+            }
+
+            /* HACE QUE LA TABLA SEA RESPONSIVA */
+            table, thead, tbody, th, td, tr {
+                display: block;
+            }
+
+            thead tr {
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+            
+            tr { 
+                border: 1px solid #ccc;
+                margin-bottom: 10px;
+                border-radius: 4px;
+            }
+
+            td {
+                border: none;
+                border-bottom: 1px solid #eee;
+                position: relative;
+                padding-left: 50%; 
+                text-align: right;
+            }
+
+            /* Insertar los 'headers' de la tabla con el atributo data-label */
+            td:before {
+                position: absolute;
+                top: 6px;
+                left: 6px;
+                width: 45%;
+                padding-right: 10px;
+                white-space: nowrap;
+                text-align: left;
+                font-weight: bold;
+                color: #0056b3;
+                /* --- Se definen los labels aquí --- */
+                content: attr(data-label);
+            }
+        }
+        
     </style>
 </head>
 <body>
@@ -111,22 +168,22 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Refuerzo Solfeggio/Pulso</td>
-                        <td>$400Hz (Ajuste previo)</td>
-                        <td>Mantener nivel actual</td>
-                        <td>Refuerza el pulso monaural y la intención de la frecuencia Solfeggio.</td>
+                        <td data-label="Filtro (Propósito)">Refuerzo Solfeggio/Pulso</td>
+                        <td data-label="Frecuencia (Hz / kHz)">$400 \text{ Hz}$ (Ajuste previo)</td>
+                        <td data-label="Ganancia Recomendada (dB)">Mantener nivel actual</td>
+                        <td data-label="Función Neural">Refuerza el pulso monaural y la intención de la frecuencia Solfeggio.</td>
                     </tr>
                     <tr>
-                        <td>Discriminación de Vocales</td>
-                        <td>$2.5 \text{ kHz}$</td>
-                        <td>$+4 \text{ dB}$ a $+6 \text{ dB}$</td>
-                        <td>Entrena la capacidad de procesamiento del Formante 2 (claridad vocal).</td>
+                        <td data-label="Filtro (Propósito)">Discriminación de Vocales</td>
+                        <td data-label="Frecuencia (Hz / kHz)">$2.5 \text{ kHz}$</td>
+                        <td data-label="Ganancia Recomendada (dB)">$+4 \text{ dB}$ a $+6 \text{ dB}$</td>
+                        <td data-label="Función Neural">Entrena la capacidad de procesamiento del Formante 2 (claridad vocal).</td>
                     </tr>
                     <tr>
-                        <td>Claridad y Consonantes</td>
-                        <td>$4 \text{ kHz}$</td>
-                        <td>$+5 \text{ dB}$ a $+8 \text{ dB}$</td>
-                        <td><span style="font-weight: bold;">CRÍTICO:</span> Fuerza la atención en las sibilantes de alta frecuencia (detalles).</td>
+                        <td data-label="Filtro (Propósito)">Claridad y Consonantes</td>
+                        <td data-label="Frecuencia (Hz / kHz)">$4 \text{ kHz}$</td>
+                        <td data-label="Ganancia Recomendada (dB)">$+5 \text{ dB}$ a $+8 \text{ dB}$</td>
+                        <td data-label="Función Neural"><span style="font-weight: bold;">CRÍTICO:</span> Fuerza la atención en las sibilantes de alta frecuencia (detalles).</td>
                     </tr>
                 </tbody>
             </table>
