@@ -41,7 +41,7 @@
             color: #555;
             margin-top: 20px;
         }
-        .technique-box, .config-box {
+        .technique-box, .config-box, .expansion-box { /* Añadido .expansion-box */
             background-color: #e9f7ff;
             border-left: 5px solid #007bff;
             padding: 15px;
@@ -51,6 +51,10 @@
         .config-box {
             background-color: #fff0e9;
             border-left: 5px solid #ff7b00;
+        }
+        .expansion-box { /* Estilo específico para la nueva sección */
+            background-color: #e6ffe6; /* Verde claro para expansión */
+            border-left: 5px solid #38a700;
         }
         /* ESTILOS DE LA TABLA (NO RESPONSIVO) */
         table {
@@ -123,7 +127,6 @@
                 text-align: left;
                 font-weight: bold;
                 color: #0056b3;
-                /* --- Se definen los labels aquí --- */
                 content: attr(data-label);
             }
         }
@@ -135,7 +138,7 @@
     <div class="container">
         <h1>Documento de Avance: Proyecto Neuroplasticidad Asistida</h1>
         <p><strong>Fecha de Documentación:</strong> 16 de Diciembre de 2025</p>
-        <p><strong>Concepto Central:</strong> El proyecto busca utilizar técnicas de audio de precisión para inducir el fenómeno de <strong>arrastre de ondas cerebrales</strong> (<em>entrainment</em>) y <strong>estimulación selectiva</strong> (filtros EQ), forzando al cerebro a reorganizar y mejorar sus capacidades funcionales (Neuroplasticidad).</p>
+        <p><strong>Concepto Central:</strong> El proyecto busca utilizar técnicas de audio de precisión para inducir el fenómeno de <strong>arrastre de ondas cerebrales</strong> (entrainment) y <strong>estimulación selectiva</strong> (filtros EQ), forzando al cerebro a reorganizar y mejorar sus capacidades funcionales (Neuroplasticidad).</p>
 
         <h2>I. Principios Fundamentales y Motivación</h2>
         <ul>
@@ -149,8 +152,8 @@
             <h3>Técnica 1: Inducción de Concentración (Estado Alfa)</h3>
             <p>Se utiliza el fenómeno de la <strong>pulsación acústica real</strong> (latido monaural) para inducir el estado Alfa, asociado a la concentración y la relajación despierta.</p>
             <ul>
-                <li><strong>Frecuencia de Estimulación (Batido):</strong> <span style="font-weight: bold;">$12 \text{ Hz}$</span> (Rango Alfa: $8 \text{ Hz}$ a $13 \text{ Hz}$).</li>
-                <li><strong>Frecuencias de Audio Base:</strong> Se duplica la señal de audio (tono puro, voz, música, etc) y se verifica o calcula su frecuencia fundamental, ej: para una frecuencia de voz = 325Hz, a la señal duplicada se le aplica un desplazamiento de la frecuencia fundamental de aproximadamente 12Hz, ej: 325Hz + 12Hz = 337Hz. Finalmente, se mezclan y se reproduce el nuevo archivo.</li>
+                <li><strong>Frecuencia de Estimulación (Batido):</strong> <span style="font-weight: bold;">12 Hz</span> (Rango Alfa: 8 Hz a 13 Hz).</li>
+                <li><strong>Frecuencias de Audio Base:</strong> Se duplica la señal de audio (tono puro, voz, música, etc) y se verifica o calcula su frecuencia fundamental. A la señal duplicada se le aplica un desplazamiento de la frecuencia fundamental de aproximadamente 12 Hz. Finalmente, se mezclan y se reproduce el nuevo archivo.</li>
             </ul>
         </div>
 
@@ -169,20 +172,20 @@
                 <tbody>
                     <tr>
                         <td data-label="Filtro (Propósito)">Refuerzo Solfeggio/Pulso</td>
-                        <td data-label="Frecuencia (Hz / kHz)">$400 \text{ Hz}$ (Ajuste previo)</td>
+                        <td data-label="Frecuencia (Hz / kHz)">400 Hz (Ajuste previo)</td>
                         <td data-label="Ganancia Recomendada (dB)">Mantener nivel actual</td>
                         <td data-label="Función Neural">Refuerza el pulso monaural y la intención de la frecuencia Solfeggio.</td>
                     </tr>
                     <tr>
                         <td data-label="Filtro (Propósito)">Discriminación de Vocales</td>
-                        <td data-label="Frecuencia (Hz / kHz)">$2.5 \text{ kHz}$</td>
-                        <td data-label="Ganancia Recomendada (dB)">$+4 \text{ dB}$ a $+6 \text{ dB}$</td>
+                        <td data-label="Frecuencia (Hz / kHz)">2.5 kHz</td>
+                        <td data-label="Ganancia Recomendada (dB)">+4 dB a +6 dB</td>
                         <td data-label="Función Neural">Entrena la capacidad de procesamiento del Formante 2 (claridad vocal).</td>
                     </tr>
                     <tr>
                         <td data-label="Filtro (Propósito)">Claridad y Consonantes</td>
-                        <td data-label="Frecuencia (Hz / kHz)">$4 \text{ kHz}$</td>
-                        <td data-label="Ganancia Recomendada (dB)">$+5 \text{ dB}$ a $+8 \text{ dB}$</td>
+                        <td data-label="Frecuencia (Hz / kHz)">4 kHz</td>
+                        <td data-label="Ganancia Recomendada (dB)">+5 dB a +8 dB</td>
                         <td data-label="Función Neural"><span style="font-weight: bold;">CRÍTICO:</span> Fuerza la atención en las sibilantes de alta frecuencia (detalles).</td>
                     </tr>
                 </tbody>
@@ -193,17 +196,42 @@
             <h3>Técnica 3: Limpieza de la Señal (Filtros de Corte)</h3>
             <p>Filtros de corte aplicados para mejorar la relación señal/ruido, asegurando que el cerebro solo procese la información útil (voz + estímulo).</p>
             <ul>
-                <li><strong>Filtro de Paso Alto:</strong> Corte en <span style="font-weight: bold;">$89 \text{ Hz}$</span>. Elimina ruidos de baja frecuencia (vibraciones, <em>rumble</em>).</li>
-                <li><strong>Filtro de Paso Bajo:</strong> Corte en <span style="font-weight: bold;">$17711 \text{ Hz}$</span>. Elimina ruido de alta frecuencia (silbidos, artefactos).</li>
+                <li><strong>Filtro de Paso Alto:</strong> Corte en <span style="font-weight: bold;">89 Hz</span>. Elimina ruidos de baja frecuencia (vibraciones, <em>rumble</em>).</li>
+                <li><strong>Filtro de Paso Bajo:</strong> Corte en <span style="font-weight: bold;">17711 Hz</span>. Elimina ruido de alta frecuencia (silbidos, artefactos).</li>
             </ul>
         </div>
 
+        
         <h2>III. Observaciones Empíricas (Avance Personal)</h2>
         <ul>
             <li><strong>Percepción de Batidos Monaurales:</strong> El oído con malformación percibió inicialmente el pulso más fuerte, indicando una respuesta de neuroplasticidad temprana.</li>
             <li><strong>Detección Estéreo:</strong> Por primera y despues de 46 años de existencia en este cuerpo con un oído defectuoso, he logrado detectar diversos efectos en varias producciones musicales algunas con efecto <strong>estéreo ondulatorio (panning automatizado)</strong> y filtros de barrido (<em>wah-wah</em>). Estos son indicadores de la mejora en la <strong>discriminación espacial y de fase</strong>.</li>
+            <li><strong>Nuevo Hallazgo (Patrones):</strong> Detección de patrones melódicos sutiles dentro de grabaciones complejas (ej: similitud del intro de "The Look" de Roxette con el tema de Knight Rider), lo cual indica una mejora en la discriminación de secuencias temporales.</li>
             <li><strong>Conclusión:</strong> La metodología está resultando efectiva para inducir una mejora funcional en el procesamiento auditivo central.</li>
         </ul>
+
+        <h2 style="color: #007bff;">IV. Versatilidad: Expansión de la Metodología (TDAH y Dislexia)</h2>
+        <p>El proyecto es escalable a otras condiciones cognitivas mediante la simple modificación de la frecuencia de estimulación (Batido) y el enfoque de los filtros EQ (Estímulo Selectivo).</p>
+
+        <div class="expansion-box">
+            <h3>Objetivo 1: Déficit de Atención (TDAH)</h3>
+            <p>El objetivo es aumentar la relación Beta/Theta para mejorar la atención sostenida e inhibir distracciones.</p>
+            <ul>
+                <li><strong>Frecuencia de Estimulación:</strong> <span style="font-weight: bold;">16 Hz a 20 Hz</span> (Rango Beta bajo/medio).</li>
+                <li><strong>Filtros EQ:</strong> Mantener el refuerzo en 4 kHz y 2.5 kHz para anclar el foco en el contenido hablado (Discriminación Consonantes/Vocales).</li>
+            </ul>
+        </div>
+
+        <div class="expansion-box">
+            <h3>Objetivo 2: Dificultad de Lectura (Dislexia)</h3>
+            <p>El objetivo es mejorar el procesamiento fonológico y la discriminación de sonidos en secuencias rápidas.</p>
+            <ul>
+                <li><strong>Frecuencia de Estimulación:</strong> <span style="font-weight: bold;">30 Hz a 40 Hz</span> (Rango Gamma).</li>
+                <li><strong>Razón:</strong> La actividad Gamma está vinculada a la integración de la información y el procesamiento rápido de la secuencia temporal.</li>
+                <li><strong>Estímulo Auditivo:</strong> Podría enfocarse en la estimulación de Formantes de voz de transición rápida (Formantes F2 y F3) mediante un Ecualizador paramétrico más estrecho (Q alto).</li>
+            </ul>
+        </div>
+
 
     </div>
 
