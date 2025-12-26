@@ -1,1 +1,386 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>BioSTAir-11: Panel de Control (8 Dominios de la Colmena)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Reset y base responsive */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 1. Fondo responsivo y orgánico */
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: #0a192f;
+            color: #ffffff; 
+            min-height: 100vh;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(25, 40, 70, 0.8) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(30, 60, 100, 0.6) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(10, 25, 47, 1) 70%, transparent 100%);
+        }
+
+        /* Contenedor principal responsivo */
+        .main-container {
+            width: 100%;
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Header responsivo (El Supermercado Conceptual) */
+        .platform-header { 
+            background: rgba(30, 60, 100, 0.25);
+            backdrop-filter: blur(10px);
+            padding: clamp(20px, 5vw, 40px);
+            border-radius: 20px;
+            margin: clamp(20px, 5vw, 60px) auto;
+            width: min(90%, 600px);
+            box-shadow: 
+                0 8px 32px rgba(0, 150, 255, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(100, 200, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .platform-header::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            right: 0; height: 3px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                #64ffda, 
+                #00b4d8, 
+                #64ffda, 
+                transparent);
+            animation: scan-line 4s linear infinite;
+        }
+
+        @keyframes scan-line {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .platform-title {
+            font-size: clamp(1.8rem, 6vw, 2.8rem);
+            margin: 0 0 10px 0;
+            background: linear-gradient(135deg, #64ffda 0%, #00b4d8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            line-height: 1.2;
+        }
+
+        .platform-subtitle {
+            font-size: clamp(0.9rem, 3vw, 1.1rem);
+            opacity: 0.8;
+            margin: 5px 0 15px 0;
+            line-height: 1.4;
+        }
+
+        .platform-tagline {
+            font-size: clamp(0.75rem, 2.5vw, 0.9rem);
+            color: #a0e7ff;
+            padding: clamp(8px, 2vw, 10px) clamp(15px, 3vw, 20px);
+            background: rgba(0, 180, 216, 0.1);
+            border-radius: 10px;
+            display: inline-block;
+            margin-top: 15px;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            line-height: 1.4;
+        }
+
+        /* Contenedor de arquitectura responsivo */
+        .architecture-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: clamp(20px, 5vw, 40px);
+            display: flex;
+            flex-direction: column;
+            gap: clamp(30px, 8vw, 60px);
+        }
+
+        /* Nivel de productos - Grid responsivo */
+        .products-level {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(300px, 90vw), 1fr));
+            justify-content: center;
+            gap: clamp(20px, 5vw, 30px);
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* Producto principal - Hexágono responsivo */
+        .product-module {
+            position: relative;
+            background: rgba(25, 40, 70, 0.6);
+            border: 2px solid rgba(100, 255, 218, 0.3);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: product-pulse 6s infinite ease-in-out;
+            aspect-ratio: 1/0.866; /* Proporción de hexágono */
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+        }
+
+        @keyframes product-pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        .product-module:hover {
+            transform: scale(1.08);
+            background: rgba(30, 60, 100, 0.8);
+            border-color: #64ffda;
+            box-shadow: 
+                0 0 20px #64ffda,
+                0 10px 40px rgba(0, 0, 0, 0.5);
+            z-index: 100;
+        }
+
+        .product-module.main-product {
+            border-width: 3px;
+            border-color: rgba(0, 180, 216, 0.5);
+            grid-column: 1 / -1; /* Ocupa toda la fila en móviles */
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        /* Nivel de soporte (La Colmena) - Grid responsivo */
+        .support-level {
+            display: grid;
+            /* Se ajusta a 2, 3 o 4 columnas dependiendo del ancho de pantalla */
+            grid-template-columns: repeat(auto-fit, minmax(min(180px, 40vw), 1fr));
+            gap: clamp(15px, 4vw, 25px);
+            justify-content: center;
+        }
+
+        .support-module {
+            background: rgba(20, 35, 60, 0.5);
+            border: 1px solid rgba(150, 150, 255, 0.2);
+            aspect-ratio: 1/0.866; /* Proporción de hexágono */
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            transition: all 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+            /* Base para los Módulos de Soporte */
+            border-color: rgba(100, 255, 218, 0.2); 
+        }
+
+        /* --- Estilos de Color para los 8 Módulos de la Colmena (Soporte) --- */
+        
+        /* M1: Progreso Personal (Verde Lima) */
+        .support-module.m1 { background: rgba(50, 100, 20, 0.4); }
+        .support-module.m1:hover { border-color: #a5ff6b; box-shadow: 0 0 15px #a5ff6b; }
+
+        /* M2: Ingeniería/Simulación (Cian/Azul) */
+        .support-module.m2 { background: rgba(20, 35, 60, 0.5); }
+        .support-module.m2:hover { border-color: #64ffda; box-shadow: 0 0 15px #64ffda; }
+        
+        /* M3: I+D / Colmena Externa (Ámbar/Amarillo) */
+        .support-module.m3 { background: rgba(140, 100, 20, 0.4); }
+        .support-module.m3:hover { border-color: #fff06b; box-shadow: 0 0 15px #fff06b; }
+
+        /* M4: Roadmap/Fase 1 (Magenta) */
+        .support-module.m4 { background: rgba(100, 20, 50, 0.4); }
+        .support-module.m4:hover { border-color: #ff6b9a; box-shadow: 0 0 15px #ff6b9a; }
+
+        /* M5: Aplicaciones Terapéuticas (Aqua Brillante) */
+        .support-module.m5 { background: rgba(0, 150, 200, 0.4); }
+        .support-module.m5:hover { border-color: #00b4d8; box-shadow: 0 0 15px #00b4d8; }
+
+        /* M6: Ciencia y Arte (Naranja Cobre) */
+        .support-module.m6 { background: rgba(140, 50, 20, 0.4); }
+        .support-module.m6:hover { border-color: #ffaa00; box-shadow: 0 0 15px #ffaa00; }
+
+        /* M7: Cosmovisiones y Creencias (Violeta/Dorado) */
+        .support-module.m7 { background: rgba(75, 0, 130, 0.3); }
+        .support-module.m7:hover { border-color: #ffd700; box-shadow: 0 0 15px #ffd700; }
+        
+        /* M8: Fundamentos Científicos (Azul Profundo - ¡NUEVO!) */
+        .support-module.m8 { 
+            background: rgba(0, 68, 136, 0.4); 
+            border-color: rgba(150, 200, 255, 0.2); 
+        }
+        .support-module.m8:hover { 
+            border-color: #5aa9e6; 
+            box-shadow: 0 0 15px #5aa9e6; 
+        }
+        
+        /* Efecto Hover Genérico */
+        .support-module:hover {
+            transform: scale(1.08);
+            background: rgba(30, 45, 70, 0.7);
+            z-index: 10;
+        }
+
+        /* Contenido de módulos responsivo */
+        .module-content {
+            padding: clamp(15px, 4vw, 20px);
+            text-align: center;
+            width: 100%;
+        }
+
+        .product-module .module-title {
+            font-size: clamp(1.2rem, 4vw, 1.5rem);
+            font-weight: bold;
+            margin-bottom: clamp(5px, 1.5vw, 10px);
+            color: #64ffda;
+            line-height: 1.2;
+        }
+
+        .support-module .module-title {
+            font-size: clamp(0.9rem, 3vw, 1.1rem);
+            color: #a0e7ff;
+            margin-bottom: 5px;
+        }
+
+        .module-description {
+            font-size: clamp(0.7rem, 2.5vw, 0.85rem);
+            opacity: 0.8;
+            line-height: 1.4;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: clamp(-5px, -1vw, -10px);
+            right: clamp(-5px, -1vw, -10px);
+            background: #00b4d8;
+            color: white;
+            font-size: clamp(0.6rem, 2vw, 0.75rem);
+            padding: clamp(2px, 0.5vw, 4px) clamp(6px, 1vw, 10px);
+            border-radius: 12px;
+            font-weight: bold;
+            z-index: 10;
+        }
+
+        /* Media queries específicas para mejor ajuste de 8 módulos */
+        @media (max-width: 768px) {
+            .support-level {
+                grid-template-columns: repeat(2, minmax(150px, 1fr));
+                gap: 15px;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .support-level {
+                /* Distribución en 4x2 para 8 módulos */
+                grid-template-columns: repeat(4, minmax(180px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="platform-header">
+            <h1 class="platform-title">BioSTAir-11</h1>
+            <p class="platform-subtitle">Campo Unificador: De la Atresia Aural a la Neurociencia del ADN</p>
+            <div class="platform-tagline">
+                Framework Patient-Engineer | Modelo Red Hat/Linux | Core Abierto
+            </div>
+        </div>
+
+        <div class="architecture-container">
+            <div class="products-level">
+                <a href="newrosync-11-dashboard.html" class="product-module main-product">
+                    <div class="product-badge">v7.0</div>
+                    <div class="module-content">
+                        <h2 class="module-title">NewroSync-11</h2>
+                        <p class="module-description">Reproductor Terapéutico Principal</p>
+                        <p class="module-description" style="margin-top: 10px; font-size: 0.85em;">
+                            Control PID Adaptativo<br>
+                            Proxy κ Formalizado<br>
+                            Módulos Multisensoriales
+                        </p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="support-level">
+                
+                <a href="progreso-personal.html" class="support-module m1">
+                    <div class="module-content">
+                        <h3 class="module-title">M1: Progreso Personal</h3>
+                        <p class="module-description">Mi Mejora Auditiva y Eventos Funcionales</p>
+                    </div>
+                </a>
+
+                <a href="ingenieria-control.html" class="support-module m2">
+                    <div class="module-content">
+                        <h3 class="module-title">M2: Ingeniería/Simulación</h3>
+                        <p class="module-description">Control PID Adaptativo y Frecuencias Complementarias</p>
+                    </div>
+                </a>
+
+                <a href="investigacion-desarrollo.html" class="support-module m3">
+                    <div class="module-content">
+                        <h3 class="module-title">M3: I+D / Hardware</h3>
+                        <p class="module-description">Referencias, Analogías Cuánticas y Core Open Source</p>
+                    </div>
+                </a>
+
+                <a href="plan-ejecucion.html" class="support-module m4">
+                    <div class="module-content">
+                        <h3 class="module-title">M4: Roadmap/Fase 1</h3>
+                        <p class="module-description">Planes de Ejecución (3 Semanas) y KPIs de Validación</p>
+                    </div>
+                </a>
+                
+                <a href="aplicaciones.html" class="support-module m5">
+                    <div class="module-content">
+                        <h3 class="module-title">M5: Aplicaciones Terapéuticas</h3>
+                        <p class="module-description">Protocolos de Modulación (Ej. Documento Audacity)</p>
+                    </div>
+                </a>
+
+                <a href="ciencia-arte-sentimiento.html" class="support-module m6">
+                    <div class="module-content">
+                        <h3 class="module-title">M6: Ciencia y Arte</h3>
+                        <p class="module-description">Amor, Humor, Dualidad y Campos de Coherencia (Ej. The Kid)</p>
+                    </div>
+                </a>
+                
+                <a href="cosmovisiones-creencias.html" class="support-module m7">
+                    <div class="module-content">
+                        <h3 class="module-title">M7: Cosmovisiones y Creencias</h3>
+                        <p class="module-description">Variables Locales (Fantasmas) y Variables Globales (Fe)</p>
+                    </div>
+                </a>
+
+                <a href="fundamentos-cientificos.html" class="support-module m8">
+                    <div class="module-content">
+                        <h3 class="module-title">M8: Fundamentos Científicos</h3>
+                        <p class="module-description">Neuroplasticidad, Resonancia Molecular y ADN/ARN</p>
+                    </div>
+                </a>
+            </div>
+            
+            <p style="text-align: center; font-size: 0.75em; opacity: 0.6; margin-top: 40px;">
+                La Colmena BioSTAIR-11 es el Framework. NewroSync-11 es el Producto.
+            </p>
+
+        </div>
+    </div>
+</body>
+</html>
+
 
